@@ -1,13 +1,19 @@
 <template>
   <div :class="classObj" class="app-wrapper">
+    <!-- 小屏下 导航栏显示时主区域的遮罩-->
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+    <!-- 导航栏 -->
     <sidebar class="sidebar-container" />
+    <!-- 主区域 -->
     <div :class="{hasTagsView:needTagsView}" class="main-container">
+      <!-- 主区域的头部导航 -->
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
         <tags-view v-if="needTagsView" />
       </div>
+      <!-- 主区域的内容部分 -->
       <app-main />
+      <!-- 设置 -->
       <right-panel v-if="showSettings">
         <settings />
       </right-panel>
