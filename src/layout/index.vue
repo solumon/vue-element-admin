@@ -56,6 +56,7 @@ export default {
     }
   },
   methods: {
+    /* 遮罩点击*/
     handleClickOutside() {
       this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
     }
